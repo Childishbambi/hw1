@@ -17,7 +17,24 @@ the function below should be the only one in this file.
 void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
-// WRITE YOUR CODE HERE
+  if(in == nullptr){
+    return;
+  } else {
+
+    // Start with the recursive call
+    split(in->next, odds, evens);
+
+    // Reaches the end of chain and starts going back
+    // pointing each corresponding list to in
+     if (((in -> val) % 2) == 0) {
+      in -> next = evens;
+      evens = in;
+     } else {
+      in -> next = odds;
+      odds = in;
+     }
+  }
+
 }
 
 /* If you needed a helper function, write it here */

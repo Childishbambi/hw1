@@ -10,8 +10,13 @@ g++ split.cpp test_split.cpp -o test_split
 */
 
 #include "split.h"
+#include <cstddef>
 
 int main(int argc, char* argv[])
 {
-
+  Node* original = 1,2,3,4;
+  Node* even = NULL;
+  Node* odd = NULL;
+  split(original, odd, even);
+  cout << original << " " << even << " " << odd;
 }
