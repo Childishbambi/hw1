@@ -11,28 +11,28 @@ the function below should be the only one in this file.
 */
 
 #include "split.h"
+#include <cstddef>
 
 /* Add a prototype for a helper function here if you need */
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
-  if(in == nullptr){
-    return;
-  } else {
+  if(in != nullptr){
 
     // Start with the recursive call
     split(in->next, odds, evens);
 
     // Reaches the end of chain and starts going back
     // pointing each corresponding list to in
-     if (((in -> val) % 2) == 0) {
+     if (((in -> value) % 2) == 0) {
       in -> next = evens;
       evens = in;
      } else {
       in -> next = odds;
       odds = in;
      }
+     in = nullptr;
   }
 
 }

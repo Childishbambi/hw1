@@ -11,12 +11,27 @@ g++ split.cpp test_split.cpp -o test_split
 
 #include "split.h"
 #include <cstddef>
+#include <iostream>
+using namespace std;
 
 int main(int argc, char* argv[])
 {
-  Node* original = 1,2,3,4;
+  Node* original = NULL;
+  original = new Node(1, NULL);
+  original->next = new Node(2, NULL);
+  original->next->next = new Node(3, NULL);
+  
   Node* even = NULL;
   Node* odd = NULL;
   split(original, odd, even);
-  cout << original << " " << even << " " << odd;
+  delete original;
+
+  cout << odd->value << " ";
+  cout << even->value << " ";
+  odd = odd->next;
+  cout << odd->value << " ";
+
+  delete odd;
+  delete even;
+  
 }
